@@ -1,0 +1,257 @@
+2024-02-24 22:25:41.643047+02:00 database: wrong user or password; user: "SA"
+org.h2.message.DbException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-224]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:288)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1039)
+	at org.h2.server.web.WebApp.process(WebApp.java:227)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:177)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Неверное имя пользователя или пароль
+Wrong user name or password [28000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 16 more
+2024-02-26 11:14:49.249977+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Метод разрешен только для запросов. Используйте execute или executeUpdate вместо executeQuery
+Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+INSERT INTO worker (NAME, BIRTHDAY, LEVEL, SALARY) VALUES
+('Olivia', '1910-01-01', 'Trainee', '500'),
+('Emma', '1920-02-01', 'Junior', '1000'),
+('Mia', '1930-03-01', 'Middle', '1500'),
+('Sophia', '1940-04-01', 'Senior', '2000'),
+('Zoey', '1950-05-01', 'Trainee', '2500'),
+('Charlotte', '1960-06-01', 'Junior', '3000'),
+('Amelia', '1970-07-01', 'Middle', '3500'),
+('Aria', '1980-08-01', 'Senior', '4000'),
+('Ava', '1990-09-01', 'Trainee', '4500'),
+('Ella', '2000-10-01', 'Junior', '5000'),
+('Nora', '2001-11-01', 'Middle', '5500'),
+('Isabella', '2002-12-01', 'Senior', '6000') [90002-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.Prepared.query(Prepared.java:256)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:252)
+	at org.h2.command.CommandList.query(CommandList.java:72)
+	at org.h2.command.Command.executeQuery(Command.java:192)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:101)
+	at database.Database.executeSelect(Database.java:54)
+	at requests.DatabaseQueryService.findMaxProjectsClient(DatabaseQueryService.java:18)
+	at requests.DatabaseQueryService.main(DatabaseQueryService.java:27)
+2024-02-26 11:42:21.273904+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "column1" не найден
+Column "column1" not found [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:301)
+	at database.Database.executeSelect(Database.java:55)
+	at requests.DatabaseQueryService.findMaxProjectsClient(DatabaseQueryService.java:17)
+	at requests.DatabaseQueryService.main(DatabaseQueryService.java:23)
+2024-02-26 11:44:47.324015+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Нет данных
+No data is available [2000-224]
+2024-02-26 12:03:30.695574+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Нет данных
+No data is available [2000-224]
+2024-02-26 12:04:07.330631+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Нет данных
+No data is available [2000-224]
+2024-02-26 12:20:47.738763+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Нет данных
+No data is available [2000-224]
+2024-02-26 20:06:03.198862+02:00 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Laptop/IdeaProjects/JDBC/test.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Laptop/IdeaProjects/JDBC/test.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:253)
+	at database.Database.<init>(Database.java:21)
+	at database.Database.<clinit>(Database.java:12)
+	at requests.DatabaseQueryService.<init>(DatabaseQueryService.java:12)
+	at requests.DatabaseQueryService.main(DatabaseQueryService.java:41)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Laptop/IdeaProjects/JDBC/test.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Laptop/IdeaProjects/JDBC/test.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Laptop/IdeaProjects/JDBC/test.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 15 more
+2024-02-26 20:06:28.348825+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "project_count" не найден
+Column "project_count" not found [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:337)
+	at database.Database.findLongestProject(Database.java:75)
+	at requests.DatabaseQueryService.findLongestProject(DatabaseQueryService.java:29)
+	at requests.DatabaseQueryService.main(DatabaseQueryService.java:41)
+2024-02-26 20:07:16.386886+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "project_count" не найден
+Column "project_count" not found [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:337)
+	at database.Database.findLongestProject(Database.java:75)
+	at requests.DatabaseQueryService.findLongestProject(DatabaseQueryService.java:29)
+	at requests.DatabaseQueryService.main(DatabaseQueryService.java:41)
+2024-02-26 20:16:24.790870+02:00 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Laptop/IdeaProjects/JDBC/test.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Laptop/IdeaProjects/JDBC/test.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:253)
+	at database.Database.<init>(Database.java:22)
+	at database.Database.<clinit>(Database.java:13)
+	at requests.DatabaseQueryService.<init>(DatabaseQueryService.java:12)
+	at requests.DatabaseQueryService.main(DatabaseQueryService.java:52)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Laptop/IdeaProjects/JDBC/test.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Laptop/IdeaProjects/JDBC/test.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Laptop/IdeaProjects/JDBC/test.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 15 more
+2024-02-26 20:16:32.965789+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "salary" не найден
+Column "salary" not found [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:337)
+	at database.Database.findMaxSalaryWorkers(Database.java:90)
+	at requests.DatabaseQueryService.findMaxSalaryWorkers(DatabaseQueryService.java:40)
+	at requests.DatabaseQueryService.main(DatabaseQueryService.java:52)
+2024-02-26 20:17:08.105771+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "SALARY" не найден
+Column "SALARY" not found [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:337)
+	at database.Database.findMaxSalaryWorkers(Database.java:90)
+	at requests.DatabaseQueryService.findMaxSalaryWorkers(DatabaseQueryService.java:40)
+	at requests.DatabaseQueryService.main(DatabaseQueryService.java:52)
+2024-02-26 20:18:59.473932+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "SALARY" не найден
+Column "SALARY" not found [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:337)
+	at database.Database.findMaxSalaryWorkers(Database.java:90)
+	at requests.DatabaseQueryService.findMaxSalaryWorkers(DatabaseQueryService.java:40)
+	at requests.DatabaseQueryService.main(DatabaseQueryService.java:52)
+2024-02-26 20:21:11.518000+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "salary" не найден
+Column "salary" not found [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:337)
+	at database.Database.findMaxSalaryWorkers(Database.java:89)
+	at requests.DatabaseQueryService.findMaxSalaryWorkers(DatabaseQueryService.java:40)
+	at requests.DatabaseQueryService.main(DatabaseQueryService.java:52)
+2024-02-26 20:22:54.439818+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "salary" не найден
+Column "salary" not found [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:337)
+	at database.Database.findMaxSalaryWorkers(Database.java:89)
+	at requests.DatabaseQueryService.findMaxSalaryWorkers(DatabaseQueryService.java:40)
+	at requests.DatabaseQueryService.main(DatabaseQueryService.java:52)
+2024-02-26 20:57:24.398159+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "type" не найден
+Column "type" not found [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:301)
+	at database.Database.findYoungestEldestWorkers(Database.java:101)
+	at requests.DatabaseQueryService.findYoungestEldestWorkers(DatabaseQueryService.java:52)
+	at requests.DatabaseQueryService.main(DatabaseQueryService.java:65)
+2024-02-26 21:05:09.218518+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "type" не найден
+Column "type" not found [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:301)
+	at database.Database.findProjectPrices(Database.java:114)
+	at requests.DatabaseQueryService.findProjectPrices(DatabaseQueryService.java:64)
+	at requests.DatabaseQueryService.main(DatabaseQueryService.java:78)
